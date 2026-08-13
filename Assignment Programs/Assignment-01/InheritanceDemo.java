@@ -104,3 +104,21 @@ public class InheritanceDemo {
      cat.meow();
  }
 }
+//output:
+// Single Inheritance: Parent method
+// Single Inheritance: Child method
+
+// Multilevel Inheritance: Grandparent method
+// Multilevel Inheritance: Parent method
+// Multilevel Inheritance: Child method
+
+// Hierarchical Inheritance: Parent method
+// Hierarchical Inheritance: Child1 method
+// Hierarchical Inheritance: Parent method
+// Hierarchical Inheritance: Child2 method
+
+// Hybrid Inheritance: Animal eats
+// Hybrid Inheritance: Dog barks
+// Hybrid Inheritance: Puppy weeps
+// Hybrid Inheritance: Animal eats
+// Hybrid Inheritance: Cat meows
