@@ -1,124 +1,117 @@
-package javacore;
+package basics;
 
-//Beginner-friendly program showing Single, Multilevel, Hierarchical, and Hybrid Inheritance
 
-//--- Single Inheritance ---
+// Program: InheritanceDemo.java
+// Aim: Demonstrate Single, Multilevel, Hierarchical, and Hybrid Inheritance
+/* ---------- Single Inheritance ---------- */
 class ParentSingle {
- void parentMethod() {
-     System.out.println("Single Inheritance: Parent method");
- }
+    void showParent() {
+        System.out.println("Single Inheritance - Parent class method executed.");
+    }
 }
+
 class ChildSingle extends ParentSingle {
- void childMethod() {
-     System.out.println("Single Inheritance: Child method");
- }
+    void showChild() {
+        System.out.println("Single Inheritance - Child class method executed.");
+    }
 }
 
-//--- Multilevel Inheritance ---
-class Grandparent {
- void grandMethod() {
-     System.out.println("Multilevel Inheritance: Grandparent method");
- }
+/* ---------- Multilevel Inheritance ---------- */
+class GrandParent {
+    void showGrandParent() {
+        System.out.println("Multilevel Inheritance - Grandparent class method executed.");
+    }
 }
-class ParentMulti extends Grandparent {
- void parentMethod() {
-     System.out.println("Multilevel Inheritance: Parent method");
- }
+
+class ParentMulti extends GrandParent {
+    void showParentMulti() {
+        System.out.println("Multilevel Inheritance - Parent class method executed.");
+    }
 }
+
 class ChildMulti extends ParentMulti {
- void childMethod() {
-     System.out.println("Multilevel Inheritance: Child method");
- }
+    void showChildMulti() {
+        System.out.println("Multilevel Inheritance - Child class method executed.");
+    }
 }
 
-//--- Hierarchical Inheritance ---
+/* ---------- Hierarchical Inheritance ---------- */
 class ParentHier {
- void commonMethod() {
-     System.out.println("Hierarchical Inheritance: Parent method");
- }
-}
-class Child1 extends ParentHier {
- void child1Method() {
-     System.out.println("Hierarchical Inheritance: Child1 method");
- }
-}
-class Child2 extends ParentHier {
- void child2Method() {
-     System.out.println("Hierarchical Inheritance: Child2 method");
- }
+    void showParentHier() {
+        System.out.println("Hierarchical Inheritance - Common parent class method executed.");
+    }
 }
 
-//--- Hybrid Inheritance (mix of multilevel + hierarchical) ---
-class Animal {
- void eat() {
-     System.out.println("Hybrid Inheritance: Animal eats");
- }
-}
-class Dog extends Animal {
- void bark() {
-     System.out.println("Hybrid Inheritance: Dog barks");
- }
-}
-class Puppy extends Dog {
- void weep() {
-     System.out.println("Hybrid Inheritance: Puppy weeps");
- }
-}
-class Cat extends Animal {
- void meow() {
-     System.out.println("Hybrid Inheritance: Cat meows");
- }
+class ChildA extends ParentHier {
+    void showChildA() {
+        System.out.println("Hierarchical Inheritance -ChildA class method executed.");
+    }
 }
 
-//--- Main Program ---
+class ChildB extends ParentHier {
+    void showChildB() {
+        System.out.println("Hierarchical Inheritance  ChildB class method executed.");
+    }
+}
+
+/* ---------- Hybrid Inheritance ---------- */
+class Base {
+    void showBase() {
+        System.out.println("Hybrid Inheritance - Base class method executed.");
+    }
+}
+
+class Derived1 extends Base {
+    void showDerived1() {
+        System.out.println("Hybrid Inheritance - Derived1 class method executed.");
+    }
+}
+
+class Derived2 extends Base {
+    void showDerived2() {
+        System.out.println("Hybrid Inheritance - Derived2 class method executed.");
+    }
+}
+
+// HybridChild inherits from Derived1 (which already inherits Base)
+class HybridChild extends Derived1 {
+    void showHybridChild() {
+        System.out.println("Hybrid Inheritance - HybridChild class method executed.");
+    }
+}
+
+/* ---------- Main Class ---------- */
 public class InheritanceDemo {
- public static void main(String[] args) {
-     // Single Inheritance
-     ChildSingle cs = new ChildSingle();
-     cs.parentMethod();
-     cs.childMethod();
+    public static void main(String[] args) {
+        
+        // --- Single Inheritance ---
+        System.out.println("\n*** Single Inheritance Demo ***");
+        ChildSingle single = new ChildSingle();
+        single.showParent();
+        single.showChild();
 
-     // Multilevel Inheritance
-     ChildMulti cm = new ChildMulti();
-     cm.grandMethod();
-     cm.parentMethod();
-     cm.childMethod();
+        // --- Multilevel Inheritance ---
+        System.out.println("\n*** Multilevel Inheritance Demo ***");
+        ChildMulti multi = new ChildMulti();
+        multi.showGrandParent();
+        multi.showParentMulti();
+        multi.showChildMulti();
 
-     // Hierarchical Inheritance
-     Child1 c1 = new Child1();
-     c1.commonMethod();
-     c1.child1Method();
+        // --- Hierarchical Inheritance ---
+        System.out.println("\n*** Hierarchical Inheritance Demo ***");
+        ChildA a = new ChildA();
+        a.showParentHier();
+        a.showChildA();
 
-     Child2 c2 = new Child2();
-     c2.commonMethod();
-     c2.child2Method();
+        ChildB b = new ChildB();
+        b.showParentHier();
+        b.showChildB();
 
-     // Hybrid Inheritance
-     Puppy p = new Puppy();
-     p.eat();
-     p.bark();
-     p.weep();
-
-     Cat cat = new Cat();
-     cat.eat();
-     cat.meow();
- }
+        // --- Hybrid Inheritance ---
+        System.out.println("\n*** Hybrid Inheritance Demo ***");
+        HybridChild hybrid = new HybridChild();
+        hybrid.showBase();
+        hybrid.showDerived1();
+        hybrid.showHybridChild();
+    }
 }
-//output:
-// Single Inheritance: Parent method
-// Single Inheritance: Child method
-
-// Multilevel Inheritance: Grandparent method
-// Multilevel Inheritance: Parent method
-// Multilevel Inheritance: Child method
-
-// Hierarchical Inheritance: Parent method
-// Hierarchical Inheritance: Child1 method
-// Hierarchical Inheritance: Parent method
-// Hierarchical Inheritance: Child2 method
-
-// Hybrid Inheritance: Animal eats
-// Hybrid Inheritance: Dog barks
-// Hybrid Inheritance: Puppy weeps
-// Hybrid Inheritance: Animal eats
-// Hybrid Inheritance: Cat meows
